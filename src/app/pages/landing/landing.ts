@@ -19,12 +19,12 @@ import { InputTextModule } from 'primeng/inputtext';
   templateUrl: './landing.html'
 })
 export class Landing {
-  title = 'Mi Aplicación';
+  title = 'ERP Rodrigo';
 
   features = [
-    { title: 'Rápido', description: 'Sistema optimizado y eficiente.' },
-    { title: 'Seguro', description: 'Protección avanzada de datos.' },
-    { title: 'Escalable', description: 'Crece junto a tu negocio.' }
+    { title: 'Rápido', description: 'Sistema optimizado y eficiente' },
+    { title: 'Seguro', description: 'Proteccion avanzada de datos' },
+    { title: 'Escalable', description: 'Crece junto a tu negocio' }
   ];
 
   menuItems = [
