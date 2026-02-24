@@ -1,0 +1,99 @@
+<!-- Navbar -->
+<p-menubar [model]="menuItems" class="shadow-md">
+    <ng-template pTemplate="start">
+        <h3 class="m-0 font-semibold text-lg">{{ title }}</h3>
+    </ng-template>
+</p-menubar>
+
+<!-- Hero Section -->
+<section class="min-h-screen flex flex-col items-center justify-center text-center px-6">
+    <h1 class="text-4xl font-bold mb-4">
+        Bienvenido a {{ title }}
+    </h1>
+
+    <p class="text-lg text-gray-600 mb-6">
+        La mejor solución para tus necesidades.
+    </p>
+
+    <p-button
+        label="Comenzar"
+        icon="pi pi-arrow-right"
+        severity="primary">
+    </p-button>
+</section>
+
+<!-- Features Section -->
+<section class="py-16 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+
+        <h2 class="text-2xl font-semibold mb-2">
+        Características
+        </h2>
+
+        <p class="text-gray-500 mb-10 text-sm">
+        Descubre lo que hace única a nuestra plataforma
+        </p>
+
+        <div class="grid gap-8 md:grid-cols-3 text-left">
+        <div *ngFor="let feature of features">
+            <p-card [header]="feature.title" class="h-full">
+            <p class="text-gray-600 text-sm">
+                {{ feature.description }}
+            </p>
+            </p-card>
+        </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-xl mx-auto">
+
+        <div class="text-center mb-8">
+        <h2 class="text-2xl font-semibold mb-2">
+            Contacto
+        </h2>
+        <p class="text-gray-500 text-sm">
+            ¿Tienes dudas? Envíanos un mensaje y te responderemos pronto.
+        </p>
+        </div>
+
+        <p-card>
+
+        <div class="space-y-4">
+
+            <div>
+            <label class="block mb-2 font-medium text-sm">Nombre</label>
+            <input pInputText type="text" class="w-full" />
+            </div>
+
+            <div>
+            <label class="block mb-2 font-medium text-sm">Email</label>
+            <input pInputText type="email" class="w-full" />
+            </div>
+
+            <div>
+            <label class="block mb-2 font-medium text-sm">Mensaje</label>
+            <textarea pInputTextarea rows="5" class="w-full"></textarea>
+            </div>
+
+            <p-button
+            label="Enviar"
+            icon="pi pi-send"
+            severity="success"
+            class="w-full">
+            </p-button>
+
+        </div>
+
+        </p-card>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-6 text-center">
+    © 2026 Mi Aplicación - Todos los derechos reservados
+</footer>

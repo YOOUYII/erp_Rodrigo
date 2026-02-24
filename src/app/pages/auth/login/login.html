@@ -1,0 +1,51 @@
+<!-- Navbar -->
+<p-menubar [model]="menuItems" class="shadow-md">
+    <ng-template pTemplate="start">
+        <h3 class="m-0 font-semibold text-lg">{{ title }}</h3>
+    </ng-template>
+</p-menubar>
+
+<section class="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+    <div class="w-full max-w-md">
+        <p-card header="Iniciar Sesión" class="shadow-2xl">
+
+        <!-- Email -->
+        <div class="mb-4">
+            <label class="block mb-2 font-medium">Correo electrónico</label>
+            <input 
+            pInputText 
+            type="email" 
+            class="w-full"
+            placeholder="ejemplo@correo.com" />
+        </div>
+
+        <!-- Password -->
+        <div class="mb-4">
+            <label class="block mb-2 font-medium">Contraseña</label>
+            <input 
+            pPassword 
+            type="password"
+            [feedback]="false"
+            class="w-full"
+            placeholder="••••••••" />
+        </div>
+
+        <!-- Button -->
+        <p-button 
+            label="Ingresar"
+            icon="pi pi-sign-in"
+            severity="primary"
+            class="w-full">
+        </p-button>
+
+        <!-- Link Registro -->
+        <div class="text-center mt-4 text-sm text-gray-600">
+            ¿No tienes cuenta?
+            <a routerLink="/register" class="text-blue-600 hover:underline cursor-pointer">
+            Regístrate aquí
+            </a>
+        </div>
+
+        </p-card>
+    </div>
+</section>

@@ -1,0 +1,94 @@
+<!-- Navbar -->
+<p-menubar [model]="menuItems" class="shadow-md">
+    <ng-template pTemplate="start">
+        <h3 class="m-0 font-semibold text-lg">{{ title }}</h3>
+    </ng-template>
+</p-menubar>
+
+<section class="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+    <div class="w-full max-w-2xl">
+        <p-card header="Crear Cuenta" class="shadow-2xl">
+
+        <div class="grid md:grid-cols-2 gap-4">
+
+            <!-- Usuario -->
+            <div>
+            <label class="block mb-2 font-medium">Usuario</label>
+            <input 
+                pInputText 
+                type="text"
+                class="w-full"
+                placeholder="rodri123" />
+            </div>
+
+            <!-- Email -->
+            <div>
+            <label class="block mb-2 font-medium">Email</label>
+            <input 
+                pInputText 
+                type="email"
+                class="w-full"
+                placeholder="rodri@gmail.com" />
+            </div>
+
+            <!-- Nombre Completo -->
+            <div class="md:col-span-2">
+            <label class="block mb-2 font-medium">Nombre Completo</label>
+            <input 
+                pInputText 
+                type="text"
+                class="w-full"
+                placeholder="Rodrigo Vázquez Rico" />
+            </div>
+
+            <!-- Dirección -->
+            <div class="md:col-span-2">
+            <label class="block mb-2 font-medium">Dirección</label>
+            <input 
+                pInputText 
+                type="text"
+                class="w-full"
+                placeholder="Calle, número, ciudad..." />
+            </div>
+
+            <!-- Contraseña -->
+            <div>
+            <label class="block mb-2 font-medium">Contraseña</label>
+            <input 
+                pPassword 
+                [feedback]="true"
+                class="w-full"
+                placeholder="••••••••" />
+            </div>
+
+            <!-- Confirmar Contraseña -->
+            <div>
+            <label class="block mb-2 font-medium">Confirmar Contraseña</label>
+            <input 
+                pPassword 
+                [feedback]="false"
+                class="w-full"
+                placeholder="••••••••" />
+            </div>
+
+        </div>
+
+        <!-- Botón -->
+        <p-button 
+            label="Registrarse"
+            icon="pi pi-user-plus"
+            severity="success"
+            class="w-full mt-6">
+        </p-button>
+
+        <!-- Link Login -->
+        <div class="text-center mt-4 text-sm text-gray-600">
+            ¿Ya tienes cuenta?
+            <a routerLink="/login" class="text-blue-600 hover:underline cursor-pointer">
+            Inicia sesión
+            </a>
+        </div>
+
+        </p-card>
+    </div>
+</section>
