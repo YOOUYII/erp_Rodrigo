@@ -1,0 +1,29 @@
+<div class="flex min-h-screen">
+    <nav class="w-64 bg-white border-r shadow-sm">
+        <p-menu [model]="items" class="flex justify-start w-full">
+            <ng-template #start>
+                <span class="inline-flex items-center gap-1 px-2 py-2">
+                    <span class="text-xl font-semibold">ERP<span class="text-primary">Rodrigo</span></span>
+                </span>
+            </ng-template>
+            <ng-template #submenuheader let-item>
+                <span class="text-primary font-bold">{{ item.label }}</span>
+            </ng-template>
+            <ng-template #item let-item>
+                <a pRipple class="flex items-center p-menu-item-link" [routerLink]="item.routerLink">
+                    <span [class]="item.icon"></span>
+                    <span class="ml-2">{{ item.label }}</span>
+                </a>
+            </ng-template>
+            <ng-template #end>
+                <span class="font-bold">V0.4</span>
+            </ng-template>
+        </p-menu>
+    </nav>
+
+    <main class="flex-1 p-6">
+            <router-outlet></router-outlet>
+    </main>
+
+
+</div>

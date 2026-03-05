@@ -1,0 +1,51 @@
+<div class="flex justify-center items-start pt-10">
+    <p-card styleClass="w-full max-w-3xl shadow-2">
+
+        <!-- HEADER DE LA CARD -->
+        <ng-template pTemplate="header">
+            <div class="block items-center gap-4 p-4 text-center">
+                <p-avatar 
+                    icon="pi pi-user"
+                    size="large" 
+                    shape="circle">
+                </p-avatar>
+
+                <div>
+                    <h2 class="m-0 text-2xl font-bold">Rodrigo Vázquez Rico</h2>
+                </div>
+            </div>
+        </ng-template>
+
+        <!-- CONTENT DE LA CARD-->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 text-center">
+            <div>
+                <label class="font-semibold block mb-1">Usuario</label>
+                <p class="m-0 text-color-secondary">YOYI</p>
+            </div>
+
+            <div>
+                <label class="font-semibold block mb-1">Email</label>
+                <p class="m-0 text-color-secondary">rodri@email.com</p>
+            </div>
+
+            <div>
+                <label class="font-semibold block mb-1">Teléfono</label>
+                <p class="m-0 text-color-secondary">442 786 3805</p>
+            </div>
+
+            <div>
+                <label class="font-semibold block mb-1">Rol</label>
+                <p-tag value="Admin" severity="success"></p-tag>
+            </div>
+        </div>
+
+        <!-- FOOTER DE LA CARD -->
+        <ng-template pTemplate="footer">
+            <div class="flex justify-center gap-3 p-4">
+                <button pButton label="Editar perfil" icon="pi pi-user-edit"></button>
+                <button pButton label="Cerrar sesión" icon="pi pi-sign-out" severity="danger"></button>
+            </div>
+        </ng-template>
+
+    </p-card>
+</div>

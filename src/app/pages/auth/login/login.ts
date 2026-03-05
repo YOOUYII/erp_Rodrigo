@@ -28,16 +28,9 @@ import {ReactiveFormsModule,NonNullableFormBuilder,Validators} from '@angular/fo
   templateUrl: './login.html'
 })
 export class Login {
-  title = 'ERP Rodrigo';
-
-  menuItems = [
-    { label: 'Inicio', icon: 'pi pi-home', routerLink: "/" },
-    { label: 'Iniciar Sesion', icon: 'pi pi-user', routerLink: '/login' },
-    { label: 'Registrarse', icon: 'pi pi-user-plus', routerLink: '/register' }
-  ];
 
   private fb = inject(NonNullableFormBuilder);
-  private router = inject(Router);
+  constructor(private router: Router) {}
 
 
   private readonly USER_EMAIL = 'rodri@gmail.com';
@@ -60,7 +53,7 @@ readonly loginForm = this.fb.group({
       // SE GUARDARIA LA SESION EN LLOCAL STORAGE
       localStorage.setItem('isLoggedIn', 'true');
       // REDIRECCION
-      this.router.navigate(['/']); 
+      this.router.navigate(['/admin']); 
 
     } else {
       this.errorMessage = 'Credenciales incorrectas';

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
@@ -11,10 +11,10 @@ import { InputTextModule } from 'primeng/inputtext';
   standalone: true,
   imports: [
     CommonModule,
-    MenubarModule,
     ButtonModule,
     CardModule,
-    InputTextModule
+    InputTextModule,
+    RouterModule
   ],
   templateUrl: './landing.html'
 })
@@ -27,9 +27,4 @@ export class Landing {
     { title: 'Escalable', description: 'Crece junto a tu negocio' }
   ];
 
-  menuItems = [
-    { label: 'Inicio', icon: 'pi pi-home', routerLink: "/" },
-    { label: 'Iniciar Sesion', icon: 'pi pi-user', routerLink: '/login' },
-    { label: 'Registrarse', icon: 'pi pi-user-plus', routerLink: '/register' }
-  ];
 }

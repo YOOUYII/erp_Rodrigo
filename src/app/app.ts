@@ -1,16 +1,15 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet, RouterModule } from '@angular/router';
-import { ButtonModule } from 'primeng/button'
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterModule ,ButtonModule],
+  imports: [RouterOutlet, RouterModule],
   standalone: true,
   templateUrl: './app.html',
   styleUrl: './app.scss',
   
 })
 export class App {
-  protected readonly title = signal('erp_Rodrigo');
+  title = 'ERP Rodrigo';
 }
 
