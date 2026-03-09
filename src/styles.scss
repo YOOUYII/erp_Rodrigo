@@ -7,3 +7,34 @@
 :root{
     font-family:Arial, Helvetica, sans-serif;
 }
+
+body .p-toast .p-toast-message {
+    &.p-toast-message-enter-active {
+        animation: fadeInToast 0.4s !important;
+    }
+    &.p-toast-message-leave-active {
+        animation: fadeOutToast 0.4s !important ;
+    }
+}
+
+@keyframes fadeInToast {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutToast {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}

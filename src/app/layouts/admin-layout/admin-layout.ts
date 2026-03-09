@@ -3,17 +3,23 @@ import { MenuItem } from 'primeng/api';
 import { MenuModule } from 'primeng/menu';
 import { BadgeModule } from 'primeng/badge';
 import { RippleModule } from 'primeng/ripple';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 @Component({
     selector: 'app-admin-layout',
     standalone: true,
-    imports: [MenuModule, BadgeModule, RippleModule,RouterModule ],
+    imports: [MenuModule, BadgeModule, RippleModule,RouterModule],
     templateUrl: './admin-layout.html',
     styleUrl: './admin-layout.scss',
 })
 export class AdminLayout implements OnInit {
     items: MenuItem[] | undefined;
+
+    constructor (
+        private router: Router,
+        private messageService: MessageService,
+    ){}
 
     ngOnInit() {
         this.items = [
@@ -41,7 +47,9 @@ export class AdminLayout implements OnInit {
                     {
                         label: 'Logout',
                         icon: 'pi pi-sign-out',
-                        routerLink: ''
+                        command: () => {
+                            this.logout();
+                        },
                     }
                 ]
             },
@@ -49,5 +57,17 @@ export class AdminLayout implements OnInit {
                 separator: true
             }
         ];
+    }
+
+    logout() {
+        this.router.navigate(['']).then(() => {
+            this.messageService.add({ 
+                key: 'loginAlerts',
+                severity: 'info', 
+                summary: '¡Adiós!', 
+                detail: 'Sesión Cerrada Correctamente' 
+            });
+        })
+        localStorage.removeItem('isLoggedIn');
     }
 }

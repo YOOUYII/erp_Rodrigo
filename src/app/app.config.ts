@@ -5,6 +5,7 @@ import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
 
 import { routes } from './app.routes';
+import { MessageService } from 'primeng/api'; // PARA QUE LOS TOASTS FUNCIONENE CUANDO SE CAMBIA DE PAGINA 
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,6 +21,7 @@ export const appConfig: ApplicationConfig = {
             }
         },
         ripple: true
-    })
+    }),
+    MessageService
   ]
 };

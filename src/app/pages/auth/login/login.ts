@@ -1,15 +1,14 @@
 import { Component, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Router } from '@angular/router';
-
+import { Router } from '@angular/router';
 import { MenubarModule } from 'primeng/menubar';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { MessageModule } from 'primeng/message';
-
-import {ReactiveFormsModule,NonNullableFormBuilder,Validators} from '@angular/forms';
+import { ReactiveFormsModule,NonNullableFormBuilder,Validators } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-login',
@@ -17,21 +16,23 @@ import {ReactiveFormsModule,NonNullableFormBuilder,Validators} from '@angular/fo
   imports: [
     MenubarModule,
     CommonModule,
-    RouterModule,
+    
     CardModule,
     ButtonModule,
     InputTextModule,
     PasswordModule,
     MessageModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   templateUrl: './login.html'
 })
 export class Login {
 
   private fb = inject(NonNullableFormBuilder);
-  constructor(private router: Router) {}
-
+  constructor(
+    private router: Router, 
+    private messageService: MessageService
+  ) {}
 
   private readonly USER_EMAIL = 'rodri@gmail.com';
   private readonly USER_PASSWORD = 'Rodri12!';
@@ -53,10 +54,23 @@ readonly loginForm = this.fb.group({
       // SE GUARDARIA LA SESION EN LLOCAL STORAGE
       localStorage.setItem('isLoggedIn', 'true');
       // REDIRECCION
-      this.router.navigate(['/admin']); 
 
-    } else {
-      this.errorMessage = 'Credenciales incorrectas';
+      this.router.navigate(['/admin']).then(() => {
+        this.messageService.add({ 
+          key: 'loginAlerts',
+          severity: 'success', 
+          summary: '¡Bienvenido!', 
+          detail: 'Sesión Iniciada Correctamente' 
+        });
+      });
+
+    } else {2
+      this.messageService.add({ 
+        key: 'loginAlerts',
+        severity: 'error', 
+        summary: 'Error al Iniciar Sesion', 
+        detail: 'Credenciales Incorrectas' 
+      });
     }
   }
 }
