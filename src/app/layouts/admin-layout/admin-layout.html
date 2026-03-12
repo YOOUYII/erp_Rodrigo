@@ -1,5 +1,5 @@
-<div class="flex min-h-screen">
-    <nav class="w-64 bg-white border-r shadow-sm">
+<div class="flex h-screen overflow-hidden">
+    <nav>
         <p-menu [model]="items" class="flex justify-start w-full">
             <ng-template #start>
                 <span class="inline-flex items-center gap-1 px-2 py-2">
@@ -16,12 +16,21 @@
                 </a>
             </ng-template>
             <ng-template #end>
-                <span class="font-bold">V0.4</span>
+                <span class="font-bold">V0.6</span>
             </ng-template>
         </p-menu>
     </nav>
 
-    <main class="flex-1 p-6">
+    <div class="flex-1 flex flex-col h-full overflow-hidden bg-gray-50">
+        <main class="flex-1 overflow-y-auto p-8">
             <router-outlet></router-outlet>
-    </main>
+        </main>
+
+        <!-- Footer -->
+        <footer class="py-6 text-center shrink-0">
+            <p class="text-sm">
+                © 2026 ERP Rodrigo - Todos los derechos reservados
+            </p>
+        </footer>
+    </div>
 </div>
